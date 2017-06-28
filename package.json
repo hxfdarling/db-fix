@@ -1,0 +1,19 @@
+{
+	"name": "db-fix",
+	"version": "1.0.0",
+	"description": "sqlite3 database fix",
+	"main": "index.js",
+	"bin": {
+		"dbfix": "cli.js"
+	},
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"author": "zman",
+	"license": "ISC",
+	"dependencies": {
+		"crypto": "0.0.3",
+		"fs-extra": "^3.0.1",
+		"sqlite3": "^3.1.8"
+	}
+}
