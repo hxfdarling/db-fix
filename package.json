@@ -1,6 +1,6 @@
 {
 	"name": "db-fix",
-	"version": "1.0.1",
+	"version": "1.0.2",
 	"description": "sqlite3 database fix",
 	"main": "index.js",
 	"bin": {

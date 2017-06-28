@@ -60,11 +60,10 @@ async function exportSQL(file, tmpsql) {
         .stdout
         .on('close', async() => {
             let index = result.lastIndexOf('ROLLBACK; -- due to errors')
-            if (index) {
+            if (~ index) {
                 result = result.substring(0, index)
                 result += '\r\nCOMMIT'
             }
-            debugger;
             await fse.remove(tmpsql)
             await fse.writeFile(tmpsql, result)
             resolve(tmpsql)
@@ -124,10 +123,9 @@ async function dbfix(file, password, alg) {
     } else {
         await exportSQL(file, tmpsql)
         await importFile(tmpsql, file + '.fixed')
-        let encryptedFile = await encrypt(file + '.fixed', password)
-        await fse.rename(encryptedFile, file + '.encrypt.fixed')
     }
     console.log('encrypt success')
 }
 // dbfix('./test.db', 'c5f2bf8eff0a0385')
+// dbfix('./test2.db')
 module.exports = dbfix
